@@ -30,7 +30,7 @@
 
         <FTTCrud Interface="Common.PokeAPI.PokemonDTO" Columns="cols" Endpoint="@endpoint" Title="Pokemons">
             <ModalContent>
-                <FTTInput Label="Nome" @bind-Value="@context.Name" Size="12"></FTTInput>
+                <FTTInput Required="true" Label="Nome" @bind-Value="@context.Name" Size="12"></FTTInput>
             </ModalContent>
         </FTTCrud>
 
