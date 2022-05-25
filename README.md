@@ -10,7 +10,7 @@
 
 > You can run as a debug using IIS to see the example pages or access the link below:
 
-- [**Wiki**](https://github.com/luizgustavo77/FTTBlazor-Exemple/wiki)
+- [**Wiki**](https://github.com/luizgustavo77/FTTBlazor/wiki)
 
 ---
 
