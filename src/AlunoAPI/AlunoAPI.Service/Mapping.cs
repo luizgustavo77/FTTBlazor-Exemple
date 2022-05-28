@@ -1,9 +1,9 @@
-﻿using AutoMapper;
-using FTTBlazor.Common.PokeAPI;
-using PokeAPI.Data.Entities;
+﻿using AlunoAPI.Data.Entities;
+using AutoMapper;
+using FTTBlazor.Client.Common.AlunoAPI;
 using System;
 
-namespace PokeAPI.Service
+namespace AlunoAPI.Service
 {
     public static class Mapping
     {
@@ -26,7 +26,7 @@ namespace PokeAPI.Service
     {
         public MappingProfile()
         {
-            CreateMap<Pokemon, PokemonDTO>().ReverseMap();
+            CreateMap<Aluno, AlunoDTO>().ReverseMap();
 
         }
     }

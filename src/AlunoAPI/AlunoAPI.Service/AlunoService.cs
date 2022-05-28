@@ -1,34 +1,34 @@
-﻿using FTTBlazor.Common.PokeAPI;
-using PokeAPI.Data;
-using PokeAPI.Data.Entities;
+﻿using AlunoAPI.Data;
+using AlunoAPI.Data.Entities;
+using FTTBlazor.Client.Common.AlunoAPI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PokeAPI.Service
+namespace AlunoAPI.Service
 {
-    public class PokemonService
+    public class AlunoService
     {
         #region Private members
         private readonly DatabaseContext _dbContext;
         #endregion
 
         #region Constructor
-        public PokemonService(DatabaseContext dbContext)
+        public AlunoService(DatabaseContext dbContext)
         {
             _dbContext = dbContext;
         }
         #endregion
 
         #region Public methods
-        public PokemonDTO Get(long Id)
+        public AlunoDTO Get(long Id)
         {
-            PokemonDTO result = new PokemonDTO();
+            AlunoDTO result = new AlunoDTO();
 
             try
             {
-                result = _dbContext.Pokemon.Where(x => x.Id == Id)
-                                                .Select(x => Mapping.Mapper.Map<PokemonDTO>(x))
+                result = _dbContext.Alunos.Where(x => x.Id == Id)
+                                                .Select(x => Mapping.Mapper.Map<AlunoDTO>(x))
                                                 .FirstOrDefault(); ;
             }
             catch (Exception)
@@ -39,13 +39,13 @@ namespace PokeAPI.Service
             return result;
         }
 
-        public List<PokemonDTO> GetAll(int pagesize, int currentpage)
+        public List<AlunoDTO> GetAll(int pagesize, int currentpage)
         {
-            List<PokemonDTO> result = new List<PokemonDTO>();
+            List<AlunoDTO> result = new List<AlunoDTO>();
 
             try
             {
-                IQueryable<Pokemon> query = _dbContext.Pokemon;
+                IQueryable<Aluno> query = _dbContext.Alunos;
 
                 if (currentpage > 0)
                 {
@@ -57,9 +57,9 @@ namespace PokeAPI.Service
                     query = query.Take(pagesize);
                 }
 
-                List<Pokemon> list = query.ToList();
+                List<Aluno> list = query.ToList();
 
-                result = list.Select(x => Mapping.Mapper.Map<PokemonDTO>(x)).ToList();
+                result = list.Select(x => Mapping.Mapper.Map<AlunoDTO>(x)).ToList();
             }
             catch (Exception)
             {
@@ -69,15 +69,15 @@ namespace PokeAPI.Service
             return result;
         }
 
-        public void Add(PokemonDTO dto)
+        public void Add(AlunoDTO dto)
         {
             try
             {
-                long newId = _dbContext.Pokemon.OrderBy(x => x.Id).Select(x => x.Id).LastOrDefault();
+                long newId = _dbContext.Alunos.OrderBy(x => x.Id).Select(x => x.Id).LastOrDefault();
 
                 dto.Id = (newId + 1).ToString();
 
-                _dbContext.Pokemon.Add(Mapping.Mapper.Map<Pokemon>(dto));
+                _dbContext.Alunos.Add(Mapping.Mapper.Map<Aluno>(dto));
                 _dbContext.SaveChanges();
             }
             catch (Exception)
@@ -86,11 +86,11 @@ namespace PokeAPI.Service
             }
         }
 
-        public void Edit(PokemonDTO dto)
+        public void Edit(AlunoDTO dto)
         {
             try
             {
-                _dbContext.Update(Mapping.Mapper.Map<Pokemon>(dto));
+                _dbContext.Update(Mapping.Mapper.Map<Aluno>(dto));
                 _dbContext.SaveChanges();
             }
             catch (Exception)
@@ -103,8 +103,8 @@ namespace PokeAPI.Service
         {
             try
             {
-                Pokemon pokemon = _dbContext.Pokemon.Where(x => x.Id == Id).FirstOrDefault(); ;
-                _dbContext.Pokemon.Remove(Mapping.Mapper.Map<Pokemon>(pokemon));
+                Aluno Aluno = _dbContext.Alunos.Where(x => x.Id == Id).FirstOrDefault(); ;
+                _dbContext.Alunos.Remove(Mapping.Mapper.Map<Aluno>(Aluno));
                 _dbContext.SaveChanges();
             }
             catch (Exception)

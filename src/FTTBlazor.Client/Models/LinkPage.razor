@@ -5,7 +5,7 @@
     public Guid Id { get; set; }
 
     [Parameter]
-    public FTTBlazor.Common.PokeAPI.PokemonDTO Item { get; set; }
+    public Common.AlunoAPI.AlunoDTO Item { get; set; }
 
     [Parameter]
     public bool isReadOnly { get; set; }
@@ -13,5 +13,5 @@
 
 <h3>LinkPage</h3>
 <p>Essa é a pagian aberta ao clicar no link!</p>
-<p>Nome Pokemon: @Item.Name</p>
+<p>Nome Aluno: @Item.Name</p>
 

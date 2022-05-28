@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
-namespace PokeAPI.Server
+namespace AlunoAPI.Server
 {
     public class Startup
     {
@@ -32,12 +32,12 @@ namespace PokeAPI.Server
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PokeAPI.Server", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "AlunoAPI.Server", Version = "v1" });
             });
 
             services.AddDbContext<Data.DatabaseContext>(options =>
             {
-                options.UseSqlite("Data Source = PokeAPI.db");
+                options.UseSqlite("Data Source = AlunoAPI.db");
             });
         }
 

@@ -1,7 +1,7 @@
 ﻿@page "/link"
 
 @code{
-    FTTBlazor.Common.PokeAPI.PokemonDTO pokemon = new FTTBlazor.Common.PokeAPI.PokemonDTO()
+    FTTBlazor.Client.Common.AlunoAPI.AlunoDTO aluno= new FTTBlazor.Client.Common.AlunoAPI.AlunoDTO()
     {
         Id = new Guid().ToString(),
         Name = "Squardle"
@@ -19,20 +19,14 @@
         <h6>Below is an example of how to implement the LINK component.</h6>
     </div>
 
-    <FTTLink BorderRight="true" Size="4" T="FTTBlazor.Common.PokeAPI.PokemonDTO" Icon="visibility"
-             Title="Pokemon link" LabelLink="@pokemon.Name">
+    <FTTLink BorderRight="true" Size="4" T="Common.AlunoAPI.AlunoDTO" Icon="visibility"
+             Title="alunolink" LabelLink="@aluno.Name">
         <Body>
-            <FTTBlazor.Client.Models.LinkPage Item="pokemon"></FTTBlazor.Client.Models.LinkPage>
+            <FTTBlazor.Client.Models.LinkPage Item="aluno"></FTTBlazor.Client.Models.LinkPage>
         </Body>
         <Footer>
         </Footer>
     </FTTLink>
-
-    <div class="mdl-cell--12-col">
-        <h4>Example</h4>
-        <h6>How to use the component in view page</h6>
-        <img src="../img/about/link1.png" />
-    </div>
 
     <div class="mdl-cell--12-col">
         <h4>In the code</h4>

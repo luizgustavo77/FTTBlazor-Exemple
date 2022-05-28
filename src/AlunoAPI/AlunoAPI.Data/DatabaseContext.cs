@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PokeAPI.Data.Entities;
+﻿using AlunoAPI.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
-namespace PokeAPI.Data
+namespace AlunoAPI.Data
 {
     public class DatabaseContext : Microsoft.EntityFrameworkCore.DbContext
     {
@@ -15,26 +15,26 @@ namespace PokeAPI.Data
         #endregion
 
         #region Public properties
-        public DbSet<Pokemon> Pokemon { get; set; }
+        public DbSet<Aluno> Alunos { get; set; }
         #endregion
 
         #region Overidden methods
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Pokemon>().HasData(GetProducts());
+            modelBuilder.Entity<Aluno>().HasData(GetProducts());
             base.OnModelCreating(modelBuilder);
         }
         #endregion
 
         #region Private methods
-        private List<Pokemon> GetProducts()
+        private List<Aluno> GetProducts()
         {
-            return new List<Pokemon>
+            return new List<Aluno>
             {
-                new Pokemon { Id = 1, Name = "Pikachu"},
-                new Pokemon { Id = 2, Name = "Bulbasaur"},
-                new Pokemon { Id = 3, Name = "Charmander"},
-                new Pokemon { Id = 4, Name = "Squirtle"}
+                new Aluno { Id = 1, Name = "Luiz"},
+                new Aluno { Id = 2, Name = "Thiago"},
+                new Aluno { Id = 3, Name = "Jhonatan"},
+                new Aluno { Id = 4, Name = "Paulo"}
             };
         }
         #endregion

@@ -2,12 +2,12 @@
 
 @code {
 #if DEBUG
-    string endpoint = "https://localhost:44306/Pokemon";
+    string endpoint = "https://localhost:44306/Aluno";
 #else
-    string endpoint = "https://localhost:44306/Pokemon";
+    string endpoint = "https://localhost:44306/Aluno";
 #endif
 
-    enum EnumPokemons
+    enum EnumAlunos
     {
         Nenhum,
         Luiz = 1,
@@ -16,9 +16,9 @@
         Thiago
     }
 
-    EnumPokemons enumValue;
+    EnumAlunos enumValue;
 
-    string[] ListPokemons = new string[]
+    string[] ListAlunos = new string[]
             {
         "Luiz",
         "Jhonatan",
@@ -44,7 +44,7 @@
     <FTTSelectEnums OnItemSelected="@(e => { Console.WriteLine("Selected: " + enumValue.ToString()); })"
                     BorderRight="true"
                     @bind-Value="@enumValue"
-                    T="EnumPokemons"
+                    T="EnumAlunos"
                     Size="4"
                     Required="true"
                     Label="Enum example">
@@ -53,7 +53,7 @@
     <div class="mdl-cell--12-col">
         <h4>In the code</h4>
         <h6>Below is an image of how to implement the component in your system</h6>
-        <img src="../img/about/selectEnum.png" />
+        <img class="img-exemple" src="../img/about/selectEnum.png" />
     </div>
 
     <div class="mdl-cell--12-col">
@@ -83,7 +83,7 @@
     <FTTSelectArray OnItemSelected="@(e => { Console.WriteLine("Selecionou: " + stringValue); })"
                     BorderRight="true"
                     @bind-Value="@stringValue"
-                    Data="@ListPokemons"
+                    Data="@ListAlunos"
                     Size="4"
                     Required="true"
                     Label="Sstring array example">
@@ -92,7 +92,7 @@
     <div class="mdl-cell--12-col">
         <h4>In the code</h4>
         <h6>Below is an image of how to implement the dialog component in your system</h6>
-        <img src="../img/about/selectString.png" />
+        <img class="img-exemple" src="../img/about/selectString.png" />
     </div>
 
     <div class="mdl-cell--12-col">
@@ -121,7 +121,7 @@
 
     <FTTSelect OnItemSelected="@(e => { Console.WriteLine("Selecionou: ID " + Id + "NAME " + Name); })"
                BorderRight="true"
-               T="Common.PokeAPI.PokemonDTO"
+               T="Common.AlunoAPI.AlunoDTO"
                Size="4"
                DataSourceEndpoint="@endpoint"
                Required="true"
@@ -135,7 +135,7 @@
     <div class="mdl-cell--12-col">
         <h4>In the code</h4>
         <h6>Below is an image of how to implement the dialog component in your system</h6>
-        <img src="../img/about/selectEndpoint.png" />
+        <img class="img-exemple" src="../img/about/selectEndpoint.png" />
     </div>
 
     <div class="mdl-cell--12-col">

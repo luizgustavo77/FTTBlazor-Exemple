@@ -1,56 +1,56 @@
-﻿using FTTBlazor.Common.PokeAPI;
+﻿using AlunoAPI.Data;
+using AlunoAPI.Service;
+using FTTBlazor.Client.Common.AlunoAPI;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Logging;
-using PokeAPI.Data;
-using PokeAPI.Service;
 using System.Collections.Generic;
 
-namespace PokeAPI.Server.Controllers
+namespace AlunoAPI.Server.Controllers
 {
     // Todo:
     // Melhorar o microserviço para ser mais genérico
 
     [ApiController]
     [Route("[controller]")]
-    public class PokemonController
+    public class AlunoController
     {
-        private readonly ILogger<PokemonController> _logger;
+        private readonly ILogger<AlunoController> _logger;
         private readonly DatabaseContext _dbContext;
 
-        public PokemonController(ILogger<PokemonController> logger, DatabaseContext dbContext)
+        public AlunoController(ILogger<AlunoController> logger, DatabaseContext dbContext)
         {
             _logger = logger;
             _dbContext = dbContext;
         }
 
         [HttpGet("{id}")]
-        public PokemonDTO Get([FromRoute] string id)
+        public AlunoDTO Get([FromRoute] string id)
         {
             if (string.IsNullOrWhiteSpace(id))
             {
                 return null;
             }
 
-            return new PokemonService(_dbContext).Get(long.Parse(id));
+            return new AlunoService(_dbContext).Get(long.Parse(id));
         }
 
         [HttpGet]
-        public IEnumerable<PokemonDTO> Get([FromQuery] int pagesize = 50, [FromQuery] int currentpage = 0)
+        public IEnumerable<AlunoDTO> Get([FromQuery] int pagesize = 50, [FromQuery] int currentpage = 0)
         {
-            return new PokemonService(_dbContext).GetAll(pagesize, currentpage);
+            return new AlunoService(_dbContext).GetAll(pagesize, currentpage);
         }
 
         [HttpPost]
-        public void Post(PokemonDTO item)
+        public void Post(AlunoDTO item)
         {
-            new PokemonService(_dbContext).Add(item);
+            new AlunoService(_dbContext).Add(item);
         }
 
         [HttpPut]
-        public void Put(PokemonDTO item)
+        public void Put(AlunoDTO item)
         {
-            new PokemonService(_dbContext).Edit(item);
+            new AlunoService(_dbContext).Edit(item);
         }
 
         [HttpDelete("{id}")]
@@ -61,7 +61,7 @@ namespace PokeAPI.Server.Controllers
                 return;
             }
 
-            new PokemonService(_dbContext).Delete(long.Parse(id));
+            new AlunoService(_dbContext).Delete(long.Parse(id));
         }
     }
 }

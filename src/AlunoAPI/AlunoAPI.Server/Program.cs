@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace PokeAPI.Server
+namespace AlunoAPI.Server
 {
     public class Program
     {

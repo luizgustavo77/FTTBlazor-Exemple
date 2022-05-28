@@ -279,3 +279,7 @@ _:-ms-input-placeholder, :root .graph {
     display: block;
     margin: 0 auto;
 }
+
+.img-exemple {
+    width: 100%
+}

@@ -6,12 +6,12 @@
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-	  <PackageReference Include="FTTBlazor.Common" Version="1.0.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PokeAPI.Data\PokeAPI.Data.csproj" />
-    <ProjectReference Include="..\PokeAPI.Service\PokeAPI.Service.csproj" />
+    <ProjectReference Include="..\..\FTTBlazor.Client.Common\FTTBlazor.Client.Common.csproj" />
+    <ProjectReference Include="..\AlunoAPI.Data\AlunoAPI.Data.csproj" />
+    <ProjectReference Include="..\AlunoAPI.Service\AlunoAPI.Service.csproj" />
   </ItemGroup>
 
 </Project>

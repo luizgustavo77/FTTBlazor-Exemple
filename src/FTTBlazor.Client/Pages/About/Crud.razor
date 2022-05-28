@@ -2,9 +2,9 @@
 
 @code {
 #if DEBUG
-    string endpoint = "https://localhost:44306/Pokemon";
+    string endpoint = "https://localhost:44306/Aluno";
 #else
-    string endpoint = "https://localhost:44306/Pokemon";
+    string endpoint = "https://localhost:44306/Aluno";
 #endif
 
     public List<FTTBlazor.FTTGridColumn> cols = new List<FTTBlazor.FTTGridColumn>();
@@ -28,7 +28,7 @@
 
     <div style="height: 30rem; margin-bottom: -5rem;">
 
-        <FTTCrud Interface="Common.PokeAPI.PokemonDTO" Columns="cols" Endpoint="@endpoint" Title="Pokemons">
+        <FTTCrud Interface="Common.AlunoAPI.AlunoDTO" Columns="cols" Endpoint="@endpoint" Title="Alunos">
             <ModalContent>
                 <FTTInput Required="true" Label="Nome" @bind-Value="@context.Name" Size="12"></FTTInput>
             </ModalContent>
